@@ -1,10 +1,8 @@
 :root {
-  --qa: #c4a574;
-  --qa-bg: #f4efe6;
-  --qa-ink: #2a241c;
-  --dev: #9aa7ff;
-  --dev-bg: #0e1118;
-  --dev-ink: #e8ecff;
+  --qa: #8a6d3b;
+  --ink: #1a1a1a;
+  --muted: #5c5c5c;
+  --dev: #5b4fd8;
   --split: 50%;
 }
 @property --split {
@@ -16,16 +14,16 @@
 html, body { margin: 0; min-height: 100%; }
 body {
   font-family: "DM Sans", ui-sans-serif, system-ui, sans-serif;
-  background: var(--dev-bg);
-  color: #f4efe6;
+  background: #fff;
+  color: var(--ink);
 }
 .skip {
   position: absolute;
   left: 12px;
   top: -48px;
   z-index: 8;
-  background: #e8c07d;
-  color: #111;
+  background: #111;
+  color: #fff;
   font-weight: 700;
   padding: 8px 12px;
 }
@@ -36,24 +34,21 @@ body {
   align-items: center;
   gap: 16px;
   flex-wrap: wrap;
-  padding: 18px 28px;
-  position: absolute;
-  left: 0;
-  right: 0;
-  top: 0;
-  z-index: 5;
+  padding: 16px 28px;
+  background: #111;
+  color: #fff;
 }
 .logo {
-  color: var(--qa-ink);
+  color: #fff;
   text-decoration: none;
   font-weight: 800;
   letter-spacing: 0.08em;
   text-transform: uppercase;
   font-size: 13px;
 }
-nav { display: flex; flex-wrap: wrap; gap: 16px; }
+nav { display: flex; flex-wrap: wrap; gap: 18px; }
 nav a {
-  color: #c5cbe3;
+  color: #cfcfcf;
   text-decoration: none;
   font-size: 12px;
   font-weight: 700;
@@ -65,63 +60,69 @@ nav a:hover, nav a.active, nav a:focus-visible { color: #fff; }
   position: relative;
   display: grid;
   grid-template-columns: 1fr 1fr;
-  min-height: 100vh;
+  min-height: calc(100vh - 56px);
   overflow: hidden;
-  --photo: url("./assets/portrait.jpg");
+  background: #fff;
+}
+.face {
+  position: absolute;
+  left: 50%;
+  top: 0;
+  bottom: 0;
+  width: min(52vw, 620px);
+  transform: translateX(-50%);
+  margin: 0;
+  pointer-events: none;
+  z-index: 1;
 }
 .layer {
   position: absolute;
   inset: 0;
-  pointer-events: none;
-  background-image: var(--photo);
-  background-size: cover;
-  background-position: 50% 18%;
-  background-repeat: no-repeat;
-  transition: clip-path 0.55s cubic-bezier(0.22, 1, 0.36, 1);
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  object-position: 50% 18%;
+  display: block;
 }
-.qa-photo {
+.art {
   clip-path: inset(0 calc(100% - var(--split)) 0 0);
-  filter: sepia(0.18) saturate(0.9) contrast(0.98);
 }
-.dev-photo {
+.photo {
   clip-path: inset(0 0 0 var(--split));
-  filter: grayscale(0.45) contrast(1.08) brightness(0.78);
 }
-.wash {
+.code {
   position: absolute;
   inset: 0;
+  margin: 0;
+  padding: 42% 8% 8% 54%;
+  font-family: "JetBrains Mono", ui-monospace, monospace;
+  font-size: clamp(11px, 1.1vw, 14px);
+  line-height: 1.7;
+  color: rgba(255, 255, 255, 0.78);
+  mix-blend-mode: overlay;
   pointer-events: none;
-  transition: clip-path 0.55s cubic-bezier(0.22, 1, 0.36, 1);
-}
-.qa-wash {
-  background: linear-gradient(90deg, #f4efe6 0%, rgba(244, 239, 230, 0.72) 38%, transparent 72%);
-  clip-path: inset(0 calc(100% - var(--split)) 0 0);
-}
-.dev-wash {
-  background: linear-gradient(270deg, #0e1118 0%, rgba(14, 17, 24, 0.78) 42%, transparent 78%);
   clip-path: inset(0 0 0 var(--split));
+  white-space: pre;
 }
-.pane {
-  appearance: none;
-  border: 0;
-  background: transparent;
-  text-align: left;
-  cursor: pointer;
-  padding: 22vh 7vw 18vh;
-  min-height: 100vh;
-  color: inherit;
-  font: inherit;
+.copy {
   position: relative;
-  z-index: 3;
+  z-index: 2;
+  text-decoration: none;
+  color: inherit;
+  max-width: 34ch;
+  align-self: center;
 }
-.pane:focus-visible { outline: 3px solid #e8c07d; outline-offset: -10px; }
+.copy:focus-visible { outline: 3px solid #111; outline-offset: 8px; }
 .qa {
-  color: var(--qa-ink);
-  padding-right: 10vw;
+  justify-self: start;
+  margin-left: clamp(28px, 6vw, 80px);
+  margin-right: 18vw;
 }
 .dev {
-  color: var(--dev-ink);
-  padding-left: 10vw;
+  justify-self: end;
+  text-align: left;
+  margin-right: clamp(28px, 6vw, 80px);
+  margin-left: 18vw;
 }
 .role {
   margin: 0 0 10px;
@@ -130,18 +131,24 @@ nav a:hover, nav a.active, nav a:focus-visible { color: #fff; }
   font-size: 12px;
   font-weight: 700;
 }
-.qa .role { color: #8a6d3b; }
+.qa .role { color: var(--qa); }
 .dev .role {
   color: var(--dev);
   font-family: "JetBrains Mono", ui-monospace, monospace;
 }
-.pane h1 {
+.copy h1 {
   margin: 0 0 14px;
   font-size: clamp(28px, 4vw, 52px);
   letter-spacing: -0.04em;
   line-height: 0.95;
+  color: var(--ink);
 }
-.pane p { margin: 0; max-width: 32ch; line-height: 1.55; font-size: 15px; }
+.copy p {
+  margin: 0;
+  line-height: 1.55;
+  font-size: 15px;
+  color: var(--muted);
+}
 .dev h1, .dev p, .dev .go {
   font-family: "JetBrains Mono", ui-monospace, monospace;
 }
@@ -154,14 +161,14 @@ nav a:hover, nav a.active, nav a:focus-visible { color: #fff; }
   letter-spacing: 0.12em;
   text-transform: uppercase;
 }
-.qa .go { color: #8a6d3b; }
+.qa .go { color: var(--qa); }
 .dev .go { color: var(--dev); }
 .hint, .links {
   width: min(1100px, calc(100% - 40px));
   margin: 18px auto;
 }
 .hint {
-  color: #b7b1a6;
+  color: #7a7a7a;
   font-size: 13px;
   text-align: center;
 }
@@ -173,17 +180,41 @@ nav a:hover, nav a.active, nav a:focus-visible { color: #fff; }
   padding: 0 0 40px;
   justify-content: center;
 }
-.links a { color: #e8c07d; font-weight: 700; }
+.links a { color: var(--dev); font-weight: 700; }
 @media (max-width: 860px) {
-  .top { position: relative; background: var(--qa-bg); }
-  nav a { color: #5c5348; }
-  .stage { grid-template-columns: 1fr; min-height: auto; }
-  .qa-photo, .qa-wash { clip-path: inset(0 0 50% 0); }
-  .dev-photo, .dev-wash { clip-path: inset(50% 0 0 0); }
-  .pane { min-height: 46vh; padding: 88px 22px 48px; }
-  .dev { padding-left: 22px; padding-bottom: 36px; }
+  .stage {
+    grid-template-columns: 1fr;
+    min-height: auto;
+  }
+  .face {
+    position: relative;
+    left: auto;
+    width: 100%;
+    height: 72vw;
+    min-height: 320px;
+    transform: none;
+    grid-row: 2;
+  }
+  .copy {
+    max-width: none;
+    margin: 0;
+    padding: 36px 22px;
+    justify-self: stretch;
+  }
+  .qa { grid-row: 1; }
+  .dev { grid-row: 3; }
   .hint { display: none; }
 }
 @media (prefers-reduced-motion: reduce) {
-  .layer, .wash { transition: none; }
+  .art, .photo, .code { transition: none; }
+}
+@media (min-width: 861px) and (prefers-reduced-motion: no-preference) {
+  .art, .photo, .code {
+    transition: clip-path 0.18s linear;
+  }
+  .stage.is-rest .art,
+  .stage.is-rest .photo,
+  .stage.is-rest .code {
+    transition: clip-path 0.45s cubic-bezier(0.22, 1, 0.36, 1);
+  }
 }

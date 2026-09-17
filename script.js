@@ -1,33 +1,58 @@
 (function () {
   var stage = document.querySelector("[data-stage]");
-  if (!stage) return;
+  var face = document.querySelector("[data-face]");
+  if (!stage || !face) return;
   var qa = stage.querySelector('[data-lean="qa"]');
   var dev = stage.querySelector('[data-lean="dev"]');
   var reduce = window.matchMedia("(prefers-reduced-motion: reduce)").matches;
-  var wide = window.matchMedia("(min-width: 861px)").matches;
+  var wideMq = window.matchMedia("(min-width: 861px)");
 
-  function lean(mode) {
-    qa.setAttribute("aria-pressed", mode === "qa" ? "true" : "false");
-    dev.setAttribute("aria-pressed", mode === "dev" ? "true" : "false");
-    if (!wide || reduce) {
-      stage.style.setProperty("--split", "50%");
-      return;
-    }
-    if (mode === "qa") stage.style.setProperty("--split", "68%");
-    else if (mode === "dev") stage.style.setProperty("--split", "32%");
-    else stage.style.setProperty("--split", "50%");
+  function setSplit(pct, rest) {
+    stage.style.setProperty("--split", pct + "%");
+    stage.classList.toggle("is-rest", !!rest);
   }
 
-  qa.addEventListener("mouseenter", function () { lean("qa"); });
-  qa.addEventListener("focus", function () { lean("qa"); });
-  dev.addEventListener("mouseenter", function () { lean("dev"); });
-  dev.addEventListener("focus", function () { lean("dev"); });
-  stage.addEventListener("mouseleave", function () { lean(""); });
+  function reset() {
+    setSplit(50, true);
+  }
 
-  qa.addEventListener("click", function () {
-    window.location.href = "https://qapournima.github.io/ai-quality-engineering/journey.html";
+  function fromMouse(clientX) {
+    if (!wideMq.matches || reduce) {
+      reset();
+      return;
+    }
+    var box = face.getBoundingClientRect();
+    if (clientX < box.left) {
+      setSplit(88, false);
+      return;
+    }
+    if (clientX > box.right) {
+      setSplit(12, false);
+      return;
+    }
+    var t = (clientX - box.left) / box.width;
+    var pct = Math.round((t * 84 + 8) * 10) / 10;
+    setSplit(pct, false);
+  }
+
+  function lean(mode) {
+    if (!wideMq.matches || reduce) {
+      reset();
+      return;
+    }
+    if (mode === "qa") setSplit(88, false);
+    else if (mode === "dev") setSplit(12, false);
+    else reset();
+  }
+
+  stage.addEventListener("pointermove", function (e) {
+    fromMouse(e.clientX);
   });
-  dev.addEventListener("click", function () {
-    window.location.href = "https://qapournima.github.io/ai-quality-engineering/fame.html";
-  });
+  stage.addEventListener("pointerleave", reset);
+  qa.addEventListener("focus", function () { lean("qa"); });
+  dev.addEventListener("focus", function () { lean("dev"); });
+  qa.addEventListener("blur", reset);
+  dev.addEventListener("blur", reset);
+  wideMq.addEventListener("change", reset);
+  reset();
 })();

@@ -21,25 +21,31 @@
     </nav>
   </header>
   <main id="main">
-    <section class="stage" data-stage>
-      <div class="layer qa-photo" aria-hidden="true"></div>
-      <div class="layer dev-photo" aria-hidden="true"></div>
-      <div class="wash qa-wash" aria-hidden="true"></div>
-      <div class="wash dev-wash" aria-hidden="true"></div>
-      <button type="button" class="pane qa" data-lean="qa" aria-pressed="false">
+    <section class="stage" data-stage style="--split: 50%">
+      <a class="copy qa" data-lean="qa" href="https://qapournima.github.io/ai-quality-engineering/journey.html">
         <p class="role">QA</p>
         <h1>Quality engineering</h1>
         <p>I build the feedback that tells you whether the product can be trusted — tests, systems, CI, and observability. The definition of quality evolved with the technology, and I evolved with it.</p>
         <span class="go">Read the journey</span>
-      </button>
-      <button type="button" class="pane dev" data-lean="dev" aria-pressed="false">
+      </a>
+      <figure class="face" data-face aria-hidden="true">
+        <img class="layer art" src="./assets/portrait-art.jpg" alt="" />
+        <img class="layer photo" src="./assets/portrait.jpg" alt="" />
+        <pre class="code">observe(ready)
+  .then(test)
+  .then(ship)
+
+quality = feedback
+  you can trust</pre>
+      </figure>
+      <a class="copy dev" data-lean="dev" href="https://qapournima.github.io/ai-quality-engineering/fame.html">
         <p class="role">&lt;dev&gt;</p>
         <h1>Software + AI</h1>
         <p>I also sit in the build loop: understand, ask AI, challenge, ship, test, observe. Playwright, Maestro, React, TypeScript, Python, FastAPI — used as tools, not as the story.</p>
         <span class="go">See what I built</span>
-      </button>
+      </a>
     </section>
-    <p class="hint">Hover a side — the same photo stays in the page, the identity wipes across it.</p>
+    <p class="hint">Two treatments of the same photo. At rest they meet in the middle — move the mouse to wipe art or photograph across the figure.</p>
     <ul class="links">
       <li><a href="https://qapournima.github.io/ai-quality-engineering/journey.html">How quality evolved</a></li>
       <li><a href="https://qapournima.github.io/ai-quality-engineering/qa-lab.html">QA Lab</a></li>
