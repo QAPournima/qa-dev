@@ -1,0 +1,180 @@
+:root {
+  --qa: #c4a574;
+  --qa-bg: #f4efe6;
+  --qa-ink: #2a241c;
+  --dev: #9aa7ff;
+  --dev-bg: #12151d;
+  --dev-ink: #e8ecff;
+  --split: 50%;
+}
+* { box-sizing: border-box; }
+html, body { margin: 0; min-height: 100%; }
+body {
+  font-family: "DM Sans", ui-sans-serif, system-ui, sans-serif;
+  background: #0b0d12;
+  color: #f4efe6;
+}
+.skip {
+  position: absolute;
+  left: 12px;
+  top: -48px;
+  background: #e8c07d;
+  color: #111;
+  font-weight: 700;
+  padding: 8px 12px;
+  z-index: 8;
+}
+.skip:focus { top: 12px; }
+.top {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  gap: 16px;
+  flex-wrap: wrap;
+  padding: 18px 28px;
+  position: absolute;
+  left: 0;
+  right: 0;
+  top: 0;
+  z-index: 4;
+}
+.logo { color: #2a241c; }
+.logo {
+  color: inherit;
+  text-decoration: none;
+  font-weight: 800;
+  letter-spacing: 0.08em;
+  text-transform: uppercase;
+  font-size: 13px;
+}
+nav { display: flex; flex-wrap: wrap; gap: 16px; }
+nav a {
+  color: #b7b1a6;
+  text-decoration: none;
+  font-size: 12px;
+  font-weight: 700;
+  letter-spacing: 0.1em;
+  text-transform: uppercase;
+}
+nav a:hover, nav a.active, nav a:focus-visible { color: #f4efe6; }
+.stage {
+  position: relative;
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  min-height: 100vh;
+  overflow: hidden;
+}
+.pane {
+  appearance: none;
+  border: 0;
+  text-align: left;
+  cursor: pointer;
+  padding: 12vh 8vw 18vh;
+  min-height: 520px;
+  color: inherit;
+  font: inherit;
+  position: relative;
+  z-index: 1;
+  transition: filter 0.25s ease;
+}
+.pane:focus-visible { outline: 3px solid #e8c07d; outline-offset: -8px; }
+.qa {
+  background: var(--qa-bg);
+  color: var(--qa-ink);
+  padding-right: 18vw;
+}
+.dev {
+  background: var(--dev-bg);
+  color: var(--dev-ink);
+  padding-left: 18vw;
+  font-family: "JetBrains Mono", ui-monospace, monospace;
+}
+.role {
+  margin: 0 0 10px;
+  letter-spacing: 0.2em;
+  text-transform: uppercase;
+  font-size: 12px;
+  font-weight: 700;
+}
+.qa .role { color: #8a6d3b; }
+.dev .role { color: var(--dev); }
+.pane h1 {
+  margin: 0 0 14px;
+  font-size: clamp(28px, 4vw, 48px);
+  letter-spacing: -0.04em;
+  line-height: 0.95;
+}
+.pane p { margin: 0; max-width: 34ch; line-height: 1.55; font-size: 15px; }
+.dev h1, .dev p { font-family: "JetBrains Mono", ui-monospace, monospace; }
+.dev h1 { font-size: clamp(22px, 3.2vw, 36px); }
+.go {
+  display: inline-block;
+  margin-top: 22px;
+  font-size: 12px;
+  font-weight: 800;
+  letter-spacing: 0.12em;
+  text-transform: uppercase;
+}
+.qa .go { color: #8a6d3b; }
+.dev .go { color: var(--dev); }
+.portrait {
+  position: absolute;
+  left: var(--split);
+  top: 50%;
+  width: min(42vw, 380px);
+  height: min(64vh, 520px);
+  transform: translate(-50%, -50%);
+  z-index: 2;
+  pointer-events: none;
+  border: 10px solid rgba(244, 239, 230, 0.92);
+  box-shadow: 0 24px 80px rgba(0, 0, 0, 0.45);
+  overflow: hidden;
+  background: #1b1b1b;
+}
+.portrait img {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  object-position: 50% 18%;
+  filter: grayscale(0.15);
+}
+.stage[data-lean="qa"] .dev { filter: brightness(0.72); }
+.stage[data-lean="dev"] .qa { filter: brightness(0.78) saturate(0.7); }
+.hint, .links {
+  width: min(1100px, calc(100% - 40px));
+  margin: 18px auto;
+}
+.hint {
+  color: #b7b1a6;
+  font-size: 13px;
+  text-align: center;
+}
+.links {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 10px 18px;
+  list-style: none;
+  padding: 0 0 40px;
+  justify-content: center;
+}
+.links a { color: #e8c07d; font-weight: 700; }
+@media (max-width: 860px) {
+  .top { position: relative; background: var(--qa-bg); }
+  nav a { color: #5c5348; }
+  .stage { grid-template-columns: 1fr; min-height: auto; }
+  .pane { min-height: 0; padding: 88px 22px 160px; }
+  .dev { padding-left: 22px; padding-bottom: 28px; }
+  .portrait {
+    position: relative;
+    left: auto;
+    top: auto;
+    transform: none;
+    width: min(72vw, 280px);
+    height: 340px;
+    margin: -140px auto 24px;
+  }
+  .hint { display: none; }
+}
+@media (prefers-reduced-motion: reduce) {
+  .pane { transition: none; }
+}
