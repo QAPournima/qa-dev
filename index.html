@@ -3,57 +3,87 @@
 <head>
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1" />
-  <title>Pournima Tele | QA × Dev</title>
+  <title>Pournima T | QA × Dev</title>
   <meta name="description" content="Pournima Tele — quality engineering on one side, software and AI-assisted development on the other. 13+ years. Career started in 2010." />
   <link rel="preconnect" href="https://fonts.googleapis.com" />
-  <link href="https://fonts.googleapis.com/css2?family=DM+Sans:ital,wght@0,400;0,500;0,700;0,800;1,500&family=JetBrains+Mono:wght@500;700&display=swap" rel="stylesheet" />
+  <link href="https://fonts.googleapis.com/css2?family=DM+Sans:wght@400;500;700;800&family=JetBrains+Mono:wght@500;700&display=swap" rel="stylesheet" />
   <link rel="stylesheet" href="./styles.css" />
 </head>
-<body>
+<body data-room="lobby">
+  <div class="mouse-spot" aria-hidden="true"></div>
   <a class="skip" href="#main">Skip to content</a>
-  <header class="top">
-    <a class="logo" href="./index.html">Pournima Tele</a>
-    <nav aria-label="Site">
-      <a class="active" href="./index.html">QA × Dev</a>
-      <a href="https://qapournima.github.io/ai-quality-engineering/journey.html">Journey</a>
-      <a href="https://qapournima.github.io/ai-quality-engineering/fame.html">Projects</a>
-      <a href="https://www.linkedin.com/in/pournimatele/">LinkedIn</a>
-    </nav>
-  </header>
-  <main id="main">
-    <section class="stage" data-stage style="--split: 50%">
+  <div class="floor">
+    <header class="nav">
+      <div class="wrap hud-inner">
+        <a class="brand" href="https://qapournima.github.io/ai-quality-engineering/">Pournima <span>T</span></a>
+        <nav class="nav-links" aria-label="Site">
+          <a class="active" href="./index.html">QA × Dev</a>
+          <a href="https://qapournima.github.io/ai-quality-engineering/journey.html">Journey</a>
+          <a href="https://qapournima.github.io/ai-quality-engineering/qa-lab.html">QA Lab</a>
+          <a href="https://qapournima.github.io/ai-quality-engineering/dev-studio.html">Dev Studio</a>
+          <a href="https://qapournima.github.io/ai-quality-engineering/office.html">Office</a>
+          <a href="https://qapournima.github.io/ai-quality-engineering/fame.html">Projects</a>
+        </nav>
+      </div>
+    </header>
+    <section class="stage" data-stage style="--split: 50">
+      <figure class="face" data-face aria-hidden="true">
+        <span class="half art-half">
+          <img src="./assets/portrait-art.jpg" alt="" />
+        </span>
+        <span class="half photo-half">
+          <img src="./assets/portrait.jpg" alt="" />
+        </span>
+      </figure>
       <a class="copy qa" data-lean="qa" href="https://qapournima.github.io/ai-quality-engineering/journey.html">
         <p class="role">QA</p>
         <h1>Quality engineering</h1>
-        <p>I build the feedback that tells you whether the product can be trusted — tests, systems, CI, and observability. The definition of quality evolved with the technology, and I evolved with it.</p>
+        <p>The feedback that tells you whether the product can be trusted — tests, systems, CI, observability.</p>
         <span class="go">Read the journey</span>
       </a>
-      <figure class="face" data-face aria-hidden="true">
-        <img class="layer art" src="./assets/portrait-art.jpg" alt="" />
-        <img class="layer photo" src="./assets/portrait.jpg" alt="" />
-        <pre class="code">observe(ready)
-  .then(test)
-  .then(ship)
-
-quality = feedback
-  you can trust</pre>
-      </figure>
       <a class="copy dev" data-lean="dev" href="https://qapournima.github.io/ai-quality-engineering/fame.html">
         <p class="role">&lt;dev&gt;</p>
         <h1>Software + AI</h1>
-        <p>I also sit in the build loop: understand, ask AI, challenge, ship, test, observe. Playwright, Maestro, React, TypeScript, Python, FastAPI — used as tools, not as the story.</p>
+        <p>I sit in the build loop: understand, ask AI, challenge, ship, test, observe.</p>
         <span class="go">See what I built</span>
       </a>
     </section>
-    <p class="hint">Two treatments of the same photo. At rest they meet in the middle — move the mouse to wipe art or photograph across the figure.</p>
-    <ul class="links">
-      <li><a href="https://qapournima.github.io/ai-quality-engineering/journey.html">How quality evolved</a></li>
-      <li><a href="https://qapournima.github.io/ai-quality-engineering/qa-lab.html">QA Lab</a></li>
-      <li><a href="https://qapournima.github.io/ai-quality-engineering/dev-studio.html">Dev Studio</a></li>
-      <li><a href="https://qapournima.github.io/ai-quality-engineering/fame.html">Projects</a></li>
-      <li><a href="https://qapournima.github.io/QAPournima/">CV dashboard</a></li>
-    </ul>
-  </main>
+    <main id="main" class="wrap after">
+      <p class="kicker">The path</p>
+      <h2 class="section-title">From fundamentals to today</h2>
+      <p class="section-sub">Each era is one chapter of the same career — not a restart.</p>
+      <div class="era-doors">
+        <a class="door me" href="https://qapournima.github.io/ai-quality-engineering/journey.html#foundations"><h2>2010</h2><p>Fundamentals</p></a>
+        <a class="door" href="https://qapournima.github.io/ai-quality-engineering/journey.html#automation"><h2>Automation</h2><p>Repeatable feedback</p></a>
+        <a class="door qa" href="https://qapournima.github.io/ai-quality-engineering/journey.html#systems"><h2>Systems</h2><p>Mobile, APIs, Kapten</p></a>
+        <a class="door qa" href="https://qapournima.github.io/ai-quality-engineering/journey.html#qe"><h2>QE</h2><p>Team, CI, observability</p></a>
+        <a class="door dev" href="https://qapournima.github.io/ai-quality-engineering/journey.html#ai"><h2>AI</h2><p>Partner, not generator</p></a>
+        <a class="door me" href="https://qapournima.github.io/ai-quality-engineering/journey.html#today"><h2>Today</h2><p>AI × Software × Quality</p></a>
+      </div>
+      <p class="kicker" style="margin-top:48px">My work</p>
+      <h2 class="section-title">Projects</h2>
+      <p class="section-sub">Selected systems. Open a card to see the work.</p>
+      <div class="grid-3">
+        <a class="card" href="https://qapournima.github.io/ai-quality-engineering/projects/ai-qa.html">
+          <h3>AI QA Agent</h3>
+          <p>Requirement-driven E2E, evidence and failure analysis.</p>
+        </a>
+        <a class="card" href="https://github.com/QAPournima/PAdo">
+          <h3>PAdo</h3>
+          <p>Personal AI desktop assistant for Slack, Jira, Gmail and Confluence.</p>
+        </a>
+        <a class="card" href="https://qapournima.github.io/ai-quality-engineering/fame.html">
+          <h3>All projects</h3>
+          <p>Mobile E2E, GenQA, synthetic monitoring, LLM test lab.</p>
+        </a>
+      </div>
+      <div class="cta">
+        <a class="btn btn-primary" href="https://qapournima.github.io/ai-quality-engineering/journey.html">How quality evolved</a>
+        <a class="btn btn-ghost" href="https://qapournima.github.io/ai-quality-engineering/fame.html">Projects</a>
+        <a class="btn btn-ghost" href="https://qapournima.github.io/QAPournima/">CV dashboard</a>
+      </div>
+    </main>
+  </div>
   <script src="./script.js"></script>
 </body>
 </html>
