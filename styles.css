@@ -150,7 +150,7 @@ a { color: inherit; }
   width: var(--face-w, 1080px);
   max-width: none;
   object-fit: cover;
-  object-position: 50% 14%;
+  object-position: 50% 42%;
 }
 .bw-half img { left: 0; filter: grayscale(1) contrast(1.12); }
 .color-half img { left: calc(var(--split) * var(--face-w, 1080px) / -100); }
