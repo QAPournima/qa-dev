@@ -159,7 +159,7 @@ a { color: inherit; }
   z-index: 3;
   text-decoration: none;
   color: inherit;
-  max-width: 28ch;
+  max-width: 32ch;
   align-self: center;
 }
 .copy:focus-visible { outline: 2px solid var(--tone); outline-offset: 8px; }
@@ -185,11 +185,28 @@ a { color: inherit; }
   font-family: "JetBrains Mono", ui-monospace, monospace;
   font-size: clamp(20px, 3vw, 32px);
 }
-.copy p {
-  margin: 0;
+.copy .pills {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 6px;
+  margin: 16px 0 0;
+  padding: 0;
+  list-style: none;
+}
+.copy .pills li {
+  border: 1px solid var(--line);
+  border-radius: 999px;
+  padding: 4px 9px;
+  font-size: 11px;
+  font-weight: 700;
+  letter-spacing: 0.04em;
   color: var(--muted);
-  line-height: 1.55;
-  font-size: 15px;
+  background: rgba(11, 13, 18, 0.35);
+}
+.copy-qa .pills li { border-color: color-mix(in srgb, var(--gold) 35%, transparent); }
+.copy-dev .pills li {
+  border-color: color-mix(in srgb, var(--dev) 40%, transparent);
+  font-family: "JetBrains Mono", ui-monospace, monospace;
 }
 .go {
   display: inline-block;
