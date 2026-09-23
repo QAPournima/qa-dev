@@ -1,0 +1,154 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <title>QA Lab | Pournima T</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com" />
+  <link href="https://fonts.googleapis.com/css2?family=DM+Sans:wght@400;500;700;800&family=JetBrains+Mono:wght@500;700&display=swap" rel="stylesheet" />
+  <link rel="stylesheet" href="./site.css" />
+</head>
+<body id="top" data-room="lab" data-root="./">
+  <div class="mouse-spot" aria-hidden="true"></div>
+  <a class="skip" href="#main">Skip to content</a>
+  <div class="floor">
+    <header class="nav hud">
+      <div class="wrap hud-inner">
+        <a class="brand" href="./index.html">Pournima <span>T</span></a>
+        <nav class="nav-links" aria-label="Site">
+          <a href="./index.html" title="Keyboard 1">QA × Dev</a>
+          <a href="./journey.html" title="Keyboard J">Journey</a>
+          <a class="active" href="./qa-lab.html" title="Keyboard 2">QA Lab</a>
+          <a href="./dev-studio.html" title="Keyboard 3">Dev Studio</a>
+          <a href="./office.html" title="Keyboard 4">Office</a>
+          <a href="./fame.html" title="Keyboard 5">Projects</a>
+        </nav>
+        <p class="hud-status" aria-label="This page: QA and observability">
+          <span class="on">QA</span>
+          <span>Dev</span>
+          <span>AI</span>
+          <span class="on">Observe</span>
+        </p>
+        <button type="button" class="hud-toggle" data-motion-toggle aria-pressed="false">Reduce motion</button>
+      </div>
+    </header>
+    <main id="main" class="wrap room" tabindex="-1">
+      <p class="kicker">Office 1</p>
+      <h1 class="section-title">Quality Engineering Lab</h1>
+      <p class="section-sub">Systems, not just tools. AI agents, web, mobile, API, observability and CI — the same loop used on Messaging, Mobile and canaries at Aircall.</p>
+      <p class="keys">Click a monitor or the phone. The cards below are the same information, without the bench.</p>
+      <div class="desk" role="group" aria-label="Lab bench">
+        <button type="button" class="screen hotspot" data-open="agent" aria-controls="lab-inspect" aria-expanded="false">
+          <h3>AI QA AGENT</h3>
+          <ol class="flow" aria-label="AI QA workflow">
+            <li data-step>Jira requirement</li>
+            <li data-step>AI analysis</li>
+            <li data-step>Test planning</li>
+            <li data-step>Playwright / Maestro</li>
+            <li data-step>Evidence</li>
+            <li data-step>Failure analysis</li>
+            <li data-step>Slack / Jira</li>
+          </ol>
+          <span class="hint">Open station</span>
+        </button>
+        <button type="button" class="screen hotspot" id="observability" data-open="synth" aria-controls="lab-inspect" aria-expanded="false">
+          <h3>SYNTHETIC MONITORING</h3>
+          <p class="env"><span class="dot"></span> Staging · healthy</p>
+          <p class="env"><span class="dot"></span> Production · healthy</p>
+          <p><span class="run">Running…</span></p>
+          <p><span class="run">Running…</span></p>
+          <p class="ok">Workflow healthy</p>
+          <p>Datadog → Slack → investigation</p>
+          <span class="hint">Open station</span>
+        </button>
+        <button type="button" class="phone hotspot" data-open="mobile" aria-controls="lab-inspect" aria-expanded="false">
+          <span class="notch" aria-hidden="true"></span>
+          <b>Mobile</b>
+          Maestro<br />
+          Appium<br />
+          iOS / Android
+          <span class="hint">Open</span>
+        </button>
+      </div>
+      <section id="lab-inspect" class="inspect" hidden>
+        <div class="inspect-bar">
+          <h2 data-inspect-title>Station</h2>
+          <button type="button" class="hud-toggle" data-inspect-close>Close</button>
+        </div>
+        <article data-panel="agent">
+          <p>AIQA Messaging Test and the AI E2E platform: Jira → reasoning → browser → evidence → failure analysis.</p>
+          <pre class="terminal">$ agent --from jira
+&gt; Requirement received
+<span class="ai">AI: analyse, plan, then execute in the browser.</span>
+<span class="ok">Evidence captured</span>
+<span class="ok">Failure analysis attached</span>
+<span class="ok">Slack / Jira notified</span></pre>
+          <p>The engineer stays the decision-maker. Traditional E2E asks people to hand-translate requirements into brittle scripts; this loop keeps requirements in and evidence out.</p>
+          <p class="inspect-links">
+            <a class="btn btn-primary" href="./projects/ai-qa.html">Open AI QA case study</a>
+          </p>
+        </article>
+        <article data-panel="synth" hidden>
+          <p>Shared Datadog synthetic canaries every 2–3 minutes, 24/7, Slack alerts, Claude as first-level investigation.</p>
+          <p>Synthetic tests run continuously on critical E2E workflows. A failure surfaces in Datadog, alerts Slack, then investigation — so issues appear before customers report them.</p>
+          <p>Canaries sit with GitLab CI, Docker and failure evidence — so issues surface before customers report them.</p>
+        </article>
+        <article data-panel="mobile" hidden>
+          <p>Appium and Maestro on iOS/Android, used on Aircall Workspace on Mobile, Voicemail Drop and WhatsApp Business.</p>
+          <ol class="flow static">
+            <li>iOS / Android</li>
+            <li>Maestro / Appium</li>
+            <li>CI/CD</li>
+            <li>Test results</li>
+          </ol>
+          <p class="inspect-links">
+            <a class="btn btn-ghost" href="https://github.com/QAPournima/QAAutomationTest_Mobile">Mobile automation on GitHub</a>
+          </p>
+        </article>
+      </section>
+      <div class="stations">
+        <a class="card" href="./projects/ai-qa.html">
+          <h3>AI QA</h3>
+          <p>AIQA Messaging Test and the AI E2E platform: Jira → reasoning → browser → evidence → failure analysis.</p>
+        </a>
+        <a class="card" href="https://github.com/QAPournima/QAAutomationTest_Mobile">
+          <h3>Mobile</h3>
+          <p>Appium and Maestro on iOS/Android, used on Aircall Workspace on Mobile, Voicemail Drop and WhatsApp Business.</p>
+        </a>
+        <a class="card" href="https://github.com/QAPournima/playwrightWithJavascript">
+          <h3>Web</h3>
+          <p>Playwright plus AI-assisted workflows that turn requirements into executable browser scenarios.</p>
+        </a>
+        <a class="card" href="https://github.com/QAPournima/QAAutomation">
+          <h3>API</h3>
+          <p>REST-assured, Postman, SQL and MongoDB — backend contracts as part of the same quality loop.</p>
+        </a>
+        <article class="card">
+          <h3>Observability</h3>
+          <p>Shared Datadog synthetic canaries every 2–3 minutes, 24/7, Slack alerts, Claude as first-level investigation.</p>
+        </article>
+        <article class="card">
+          <h3>Performance and CI</h3>
+          <p>Canaries, GitLab CI, Docker and failure evidence — so issues surface before customers report them.</p>
+        </article>
+      </div>
+    </main>
+  </div>
+  <footer class="site-foot">
+    <a class="to-top" href="#top" aria-label="Back to top"><svg viewBox="0 0 24 24" width="20" height="20" aria-hidden="true"><path d="M6 14l6-6 6 6" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round"/></svg></a>
+    <div class="foot-inner wrap">
+      <p>© 2026 Pournima Tele</p>
+      <nav aria-label="Footer">
+        <a href="./index.html">QA × Dev</a>
+        <a href="./journey.html">Journey</a>
+        <a href="./qa-lab.html">QA Lab</a>
+        <a href="./dev-studio.html">Dev Studio</a>
+        <a href="./office.html">Office</a>
+        <a href="./fame.html">Projects</a>
+      </nav>
+    </div>
+  </footer>
+  <script src="./js/hq.js?v=noguide"></script>
+  <script src="./js/lab.js"></script>
+</body>
+</html>
