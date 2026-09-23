@@ -84,7 +84,7 @@
       "px " +
       e.clientY +
       "px, color-mix(in srgb, var(--tone) 26%, transparent), transparent 80%)";
-    var card = e.target.closest(".door, .card");
+    var card = e.target.closest(".door, .card, .panel, .frame, .write-card");
     if (!card) return;
     var r = card.getBoundingClientRect();
     card.style.setProperty("--lx", e.clientX - r.left + "px");
